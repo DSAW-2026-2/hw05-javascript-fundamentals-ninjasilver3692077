@@ -3,6 +3,10 @@ const themeLabel = document.getElementById("theme-label");
 const evidenceModal = document.getElementById("evidence-modal");
 const openEvidenceModal = document.getElementById("open-evidence-modal");
 const closeEvidenceModal = document.getElementById("close-evidence-modal");
+const storySearch = document.getElementById("story-search");
+const storyCards = document.querySelectorAll("[data-story]");
+const storyFilterStatus = document.getElementById("story-filter-status");
+const storyEmpty = document.getElementById("story-empty");
 
 function updateThemeButton() {
     const isDark = document.documentElement.classList.contains("dark");
@@ -16,6 +20,26 @@ function closeModal() {
     evidenceModal.classList.remove("flex");
     evidenceModal.setAttribute("aria-hidden", "true");
     openEvidenceModal.focus();
+}
+
+function updateStoryFilter() {
+    const query = storySearch.value.trim().toLowerCase();
+    let visibleStories = 0;
+
+    storyCards.forEach((card) => {
+        const matchesSearch = card.textContent.toLowerCase().includes(query);
+
+        card.classList.toggle("hidden", !matchesSearch);
+
+        if (matchesSearch) {
+            visibleStories += 1;
+        }
+    });
+
+    storyEmpty.classList.toggle("hidden", visibleStories !== 0);
+    storyFilterStatus.textContent = query === ""
+        ? `Showing all ${visibleStories} user stories.`
+        : `Showing ${visibleStories} user stories for "${query}".`;
 }
 
 themeToggle.addEventListener("click", () => {
@@ -40,6 +64,8 @@ evidenceModal.addEventListener("click", (event) => {
     }
 });
 
+storySearch.addEventListener("input", updateStoryFilter);
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !evidenceModal.classList.contains("hidden")) {
         closeModal();
@@ -47,3 +73,4 @@ document.addEventListener("keydown", (event) => {
 });
 
 updateThemeButton();
+updateStoryFilter();
