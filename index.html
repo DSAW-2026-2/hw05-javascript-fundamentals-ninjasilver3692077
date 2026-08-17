@@ -356,9 +356,17 @@
                     These stories describe the main actions students complete while participating in PlayReal.
                 </p>
 
-                <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                <div class="mt-6 max-w-xl">
+                    <label for="story-search" class="mb-2 block font-medium">Search user stories</label>
+                    <input id="story-search" type="search" aria-controls="story-list" aria-describedby="story-filter-status" placeholder="Search by action, such as vote or ranking" class="w-full rounded-md border border-slate-300 bg-white px-4 py-3 dark:border-slate-600 dark:bg-slate-950">
+                    <p id="story-filter-status" class="mt-2 text-sm text-slate-600 dark:text-slate-300" role="status" aria-live="polite"></p>
+                </div>
 
-                    <article class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                <p id="story-empty" class="mt-8 hidden rounded-md border border-blue-200 bg-blue-50 p-4 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">No user stories match your search.</p>
+
+                <div id="story-list" class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
                         <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 01</p>
                         <h3 class="mt-1 text-xl font-semibold">Create a Private Group</h3>
                         <p class="mt-3 text-slate-600 dark:text-slate-300">
@@ -366,7 +374,7 @@
                         </p>
                     </article>
 
-                    <article class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
                         <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 02</p>
                         <h3 class="mt-1 text-xl font-semibold">View the Active Challenge</h3>
                         <p class="mt-3 text-slate-600 dark:text-slate-300">
@@ -374,7 +382,7 @@
                         </p>
                     </article>
 
-                    <article class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
                         <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 03</p>
                         <h3 class="mt-1 text-xl font-semibold">Upload Evidence</h3>
                         <p class="mt-3 text-slate-600 dark:text-slate-300">
@@ -382,7 +390,7 @@
                         </p>
                     </article>
 
-                    <article class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
                         <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 04</p>
                         <h3 class="mt-1 text-xl font-semibold">Vote for Evidence</h3>
                         <p class="mt-3 text-slate-600 dark:text-slate-300">
@@ -390,7 +398,7 @@
                         </p>
                     </article>
 
-                    <article class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
                         <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 05</p>
                         <h3 class="mt-1 text-xl font-semibold">Earn Points</h3>
                         <p class="mt-3 text-slate-600 dark:text-slate-300">
@@ -398,7 +406,7 @@
                         </p>
                     </article>
 
-                    <article class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
                         <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 06</p>
                         <h3 class="mt-1 text-xl font-semibold">View the Ranking</h3>
                         <p class="mt-3 text-slate-600 dark:text-slate-300">
