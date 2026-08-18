@@ -1,3 +1,11 @@
+# Name
+
+Juan Esteban Gonzalez Villarreal
+
+# Pages link
+
+https://dsaw-2026-2.github.io/hw1-team-readme-and-project-kickoff-ninjasilver3692077/
+
 # HW05 — JavaScript Fundamentals
 
 **Week 5 · DSAW · Universidad de La Sabana**
