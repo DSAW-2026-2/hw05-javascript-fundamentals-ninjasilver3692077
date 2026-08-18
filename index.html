@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PlayReal is a web application for university students to organize private group challenges, upload evidence, vote, earn points, maintain streaks, and track rankings.">
+
+    <title>PlayReal - Group Challenges for Students</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class"
+        };
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark");
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <header class="sticky top-0 z-50 border-b border-blue-800 bg-blue-700 text-white dark:border-slate-700 dark:bg-slate-900">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
+
+            <a href="#home" class="text-xl font-bold">PlayReal</a>
+
+            <nav class="hidden items-center gap-5 text-sm lg:flex" aria-label="Main navigation">
+                <a href="#problem" class="text-blue-100 hover:text-white">Problem</a>
+                <a href="#justification" class="text-blue-100 hover:text-white">Web App</a>
+                <a href="#solution" class="text-blue-100 hover:text-white">Solution</a>
+                <a href="#users" class="text-blue-100 hover:text-white">Users</a>
+                <a href="#stories" class="text-blue-100 hover:text-white">Stories</a>
+                <a href="#contact" class="text-blue-100 hover:text-white">Contact</a>
+                <a href="#wireframes" class="text-blue-100 hover:text-white">Wireframes</a>
+                <a href="#team" class="text-blue-100 hover:text-white">Team</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+
+                <details class="relative lg:hidden">
+                    <summary class="cursor-pointer list-none rounded-md border border-blue-400 bg-blue-600 px-3 py-2 text-sm font-semibold">
+                        Menu
+                    </summary>
+
+                    <nav class="absolute right-0 mt-2 w-48 rounded-lg border border-slate-200 bg-white p-2 text-slate-900 shadow-lg dark:border-slate-700 dark:bg-slate-900 dark:text-white" aria-label="Mobile navigation">
+                        <a href="#problem" class="block rounded-md px-3 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-800">Problem</a>
+                        <a href="#justification" class="block rounded-md px-3 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-800">Web App</a>
+                        <a href="#solution" class="block rounded-md px-3 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-800">Solution</a>
+                        <a href="#users" class="block rounded-md px-3 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-800">Users</a>
+                        <a href="#stories" class="block rounded-md px-3 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-800">Stories</a>
+                        <a href="#contact" class="block rounded-md px-3 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-800">Contact</a>
+                        <a href="#wireframes" class="block rounded-md px-3 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-800">Wireframes</a>
+                        <a href="#team" class="block rounded-md px-3 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-800">Team</a>
+                    </nav>
+                </details>
+
+                <button id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" class="rounded-md border border-blue-400 bg-blue-600 px-3 py-2 text-sm font-semibold hover:bg-blue-500 dark:border-slate-600 dark:bg-slate-800">
+                    <span id="theme-label">Dark Mode</span>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="home" class="border-b border-blue-100 bg-blue-50 px-4 py-16 dark:border-slate-800 dark:bg-slate-950 sm:px-6 sm:py-20 lg:px-8">
+            <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
+
+                <div>
+                    <span class="inline-block rounded-md border border-blue-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700 dark:border-blue-900 dark:bg-slate-900 dark:text-blue-300">
+                        Academic Project
+                    </span>
+
+                    <h1 class="mt-5 text-4xl font-bold leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
+                        PlayReal: group challenges people actually complete.
+                    </h1>
+
+                    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                        A web application for small student groups to create challenges, upload evidence, vote, earn points, maintain streaks, and compete in a shared ranking.
+                    </p>
+
+                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <a href="#wireframes" class="rounded-md bg-blue-600 px-5 py-3 text-center font-semibold text-white hover:bg-blue-700 dark:bg-blue-500">
+                            View Wireframes
+                        </a>
+
+                        <a href="#problem" class="rounded-md border border-blue-300 bg-white px-5 py-3 text-center font-semibold text-blue-700 hover:bg-blue-100 dark:border-slate-600 dark:bg-slate-900 dark:text-blue-300">
+                            Explore the Project
+                        </a>
+                    </div>
+                </div>
+
+                <article class="overflow-hidden rounded-xl border border-blue-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-blue-200 bg-blue-100 px-5 py-4 dark:border-slate-700 dark:bg-blue-950">
+                        <p class="font-semibold text-blue-900 dark:text-blue-200">Active Challenge</p>
+
+                        <div class="flex gap-2">
+                            <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700 dark:bg-green-950 dark:text-green-300">
+                                Active
+                            </span>
+
+                            <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-950 dark:text-amber-300">
+                                3 days left
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
+                            Weekly Challenge
+                        </p>
+
+                        <h2 class="mt-2 text-2xl font-bold">
+                            Read for 20 minutes every day
+                        </h2>
+
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            Complete the challenge and upload evidence before time runs out.
+                        </p>
+
+                        <div class="mt-6 grid gap-3 sm:grid-cols-3">
+                            <div class="rounded-md border border-blue-100 bg-blue-50 p-4 text-center dark:border-slate-700 dark:bg-slate-800">
+                                <p class="text-xs uppercase text-slate-500 dark:text-slate-400">Points</p>
+                                <p class="mt-1 text-xl font-bold text-blue-700 dark:text-blue-300">128</p>
+                            </div>
+
+                            <div class="rounded-md border border-green-200 bg-green-50 p-4 text-center dark:border-green-900 dark:bg-green-950">
+                                <p class="text-xs uppercase text-green-700 dark:text-green-300">Streak</p>
+                                <p class="mt-1 text-xl font-bold text-green-700 dark:text-green-300">5 days</p>
+                            </div>
+
+                            <div class="rounded-md border border-blue-100 bg-blue-50 p-4 text-center dark:border-slate-700 dark:bg-slate-800">
+                                <p class="text-xs uppercase text-slate-500 dark:text-slate-400">Ranking</p>
+                                <p class="mt-1 text-xl font-bold text-blue-700 dark:text-blue-300">#2</p>
+                            </div>
+                        </div>
+
+                        <button id="open-evidence-modal" type="button" class="mt-6 w-full rounded-md bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700 dark:bg-blue-500">
+                            Upload Evidence
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="problem" class="border-b border-slate-200 bg-white px-4 py-14 dark:border-slate-800 dark:bg-slate-900 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
+                    The Problem
+                </p>
+
+                <h2 class="mt-3 max-w-4xl text-3xl font-bold sm:text-4xl">
+                    Challenges organized through chats quickly become difficult to follow
+                </h2>
+
+                <p class="mt-4 max-w-4xl text-slate-600 dark:text-slate-300">
+                    Evidence, votes, points, and progress become mixed with regular conversations, making group challenges difficult to organize over time.
+                </p>
+
+                <div class="mt-8 grid gap-5 md:grid-cols-3">
+
+                    <article class="rounded-lg border border-blue-100 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                        <h3 class="text-xl font-semibold">Evidence</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            Photos and comments become mixed with normal group conversations.
+                        </p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-100 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                        <h3 class="text-xl font-semibold">Scoring</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            Votes and points often require someone to track everything manually.
+                        </p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-100 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                        <h3 class="text-xl font-semibold">Progress</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            Rankings, streaks, and challenge history are difficult to maintain.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="justification" class="border-b border-blue-100 bg-blue-50 px-4 py-14 dark:border-slate-800 dark:bg-slate-950 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
+                    Web Application Justification
+                </p>
+
+                <h2 class="mt-3 max-w-4xl text-3xl font-bold sm:text-4xl">
+                    Why the tools students already use are not enough
+                </h2>
+
+                <p class="mt-4 max-w-4xl text-slate-600 dark:text-slate-300">
+                    PlayReal needs collaborative participation, evidence submission, voting, points, streaks, rankings, and frequent updates from several members.
+                </p>
+
+                <div class="mt-8 grid gap-5 md:grid-cols-3">
+
+                    <article class="rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
+                        <h3 class="text-xl font-semibold">Messaging Apps</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            Useful for communication, but challenge content becomes mixed with ordinary conversations.
+                        </p>
+                    </article>
+
+                    <article class="rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
+                        <h3 class="text-xl font-semibold">Spreadsheets</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            They can store scores, but require manual updates and are not focused on participation.
+                        </p>
+                    </article>
+
+                    <article class="rounded-lg border-2 border-blue-500 bg-white p-6 dark:border-blue-400 dark:bg-slate-900">
+                        <h3 class="text-xl font-semibold text-blue-700 dark:text-blue-300">PlayReal</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            Challenges, evidence, voting, scores, streaks, and rankings stay organized in one place.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="border-b border-slate-200 bg-white px-4 py-14 dark:border-slate-800 dark:bg-slate-900 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
+                    The Solution
+                </p>
+
+                <h2 class="mt-3 text-3xl font-bold sm:text-4xl">
+                    One clear flow for every group challenge
+                </h2>
+
+                <p class="mt-4 max-w-4xl text-slate-600 dark:text-slate-300">
+                    Every challenge follows the same simple process from joining a group to viewing the final ranking.
+                </p>
+
+                <ol class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+                    <li class="rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">01</p>
+                        <h3 class="mt-1 text-lg font-semibold">Group</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                            Create or join a private group with friends.
+                        </p>
+                    </li>
+
+                    <li class="rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">02</p>
+                        <h3 class="mt-1 text-lg font-semibold">Challenge</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                            View the active challenge and its deadline.
+                        </p>
+                    </li>
+
+                    <li class="rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">03</p>
+                        <h3 class="mt-1 text-lg font-semibold">Evidence</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                            Upload evidence and a short comment.
+                        </p>
+                    </li>
+
+                    <li class="rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">04</p>
+                        <h3 class="mt-1 text-lg font-semibold">Voting</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                            Review submissions and vote with the group.
+                        </p>
+                    </li>
+
+                    <li class="rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">05</p>
+                        <h3 class="mt-1 text-lg font-semibold">Scoring</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                            Earn points and maintain challenge streaks.
+                        </p>
+                    </li>
+
+                    <li class="rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">06</p>
+                        <h3 class="mt-1 text-lg font-semibold">Ranking</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                            Compare progress with the rest of the group.
+                        </p>
+                    </li>
+
+                </ol>
+            </div>
+        </section>
+
+        <section id="users" class="border-b border-blue-100 bg-blue-50 px-4 py-14 dark:border-slate-800 dark:bg-slate-950 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
+                    Target Users
+                </p>
+
+                <h2 class="mt-3 text-3xl font-bold sm:text-4xl">
+                    Designed for small private student groups
+                </h2>
+
+                <p class="mt-4 max-w-4xl text-slate-600 dark:text-slate-300">
+                    PlayReal is designed for university students, classmates, and small groups of friends who want to stay motivated through shared challenges.
+                </p>
+
+                <div class="mt-8 grid gap-5 md:grid-cols-2">
+
+                    <article class="rounded-lg border border-blue-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
+                        <h3 class="text-xl font-semibold text-blue-700 dark:text-blue-300">
+                            Habit Challenges
+                        </h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            Reading, studying, exercise, hydration, language practice, and other recurring habits.
+                        </p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
+                        <h3 class="text-xl font-semibold text-blue-700 dark:text-blue-300">
+                            Friendly Competitions
+                        </h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            Group activities supported by evidence, voting, points, streaks, and rankings.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="stories" class="border-b border-slate-200 bg-white px-4 py-14 dark:border-slate-800 dark:bg-slate-900 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
+                    User Stories
+                </p>
+
+                <h2 class="mt-3 text-3xl font-bold sm:text-4xl">
+                    Core PlayReal interactions
+                </h2>
+
+                <p class="mt-4 max-w-4xl text-slate-600 dark:text-slate-300">
+                    These stories describe the main actions students complete while participating in PlayReal.
+                </p>
+
+                <div class="mt-6 max-w-xl">
+                    <label for="story-search" class="mb-2 block font-medium">Search user stories</label>
+                    <input id="story-search" type="search" aria-controls="story-list" aria-describedby="story-filter-status" placeholder="Search by action, such as vote or ranking" class="w-full rounded-md border border-slate-300 bg-white px-4 py-3 dark:border-slate-600 dark:bg-slate-950">
+                    <p id="story-filter-status" class="mt-2 text-sm text-slate-600 dark:text-slate-300" role="status" aria-live="polite"></p>
+                </div>
+
+                <p id="story-empty" class="mt-8 hidden rounded-md border border-blue-200 bg-blue-50 p-4 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">No user stories match your search.</p>
+
+                <div id="story-list" class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 01</p>
+                        <h3 class="mt-1 text-xl font-semibold">Create a Private Group</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            As a user, I want to create a private group so that I can participate in challenges with my friends.
+                        </p>
+                    </article>
+
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 02</p>
+                        <h3 class="mt-1 text-xl font-semibold">View the Active Challenge</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            As a participant, I want to see the active challenge so that I know what I need to complete.
+                        </p>
+                    </article>
+
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 03</p>
+                        <h3 class="mt-1 text-xl font-semibold">Upload Evidence</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            As a participant, I want to upload evidence so that my group can see that I completed the challenge.
+                        </p>
+                    </article>
+
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 04</p>
+                        <h3 class="mt-1 text-xl font-semibold">Vote for Evidence</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            As a participant, I want to vote for a submission so that I can help select the best participation.
+                        </p>
+                    </article>
+
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 05</p>
+                        <h3 class="mt-1 text-xl font-semibold">Earn Points</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            As a participant, I want to earn points so that my progress is recorded.
+                        </p>
+                    </article>
+
+                    <article data-story class="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Story 06</p>
+                        <h3 class="mt-1 text-xl font-semibold">View the Ranking</h3>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300">
+                            As a participant, I want to view the ranking so that I can compare my progress with the group.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="border-b border-blue-100 bg-blue-50 px-4 py-14 dark:border-slate-800 dark:bg-slate-950 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-4xl">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
+                    Join the Pilot Program
+                </p>
+
+                <h2 class="mt-3 text-3xl font-bold sm:text-4xl">
+                    Sign up to try PlayReal
+                </h2>
+
+                <p class="mt-4 text-slate-600 dark:text-slate-300">
+                    Leave your information so we can notify you when access to the first version becomes available.
+                </p>
+
+                <form id="pilot-form" action="#" method="post" novalidate class="mt-8 grid gap-5">
+
+                    <div id="form-status" class="hidden rounded-md border px-4 py-3" role="status" aria-live="polite"></div>
+
+                    <div>
+                        <label for="name" class="mb-2 block font-medium">Full Name</label>
+                        <input id="name" name="name" type="text" required aria-describedby="name-error" placeholder="Your name" class="w-full rounded-md border border-slate-300 bg-white px-4 py-3 dark:border-slate-600 dark:bg-slate-900">
+                        <p id="name-error" class="mt-1 hidden text-sm text-red-600 dark:text-red-400"></p>
+                    </div>
+
+                    <div>
+                        <label for="email" class="mb-2 block font-medium">Email Address</label>
+                        <input id="email" name="email" type="email" required aria-describedby="email-error" placeholder="yourname@university.edu" class="w-full rounded-md border border-slate-300 bg-white px-4 py-3 dark:border-slate-600 dark:bg-slate-900">
+                        <p id="email-error" class="mt-1 hidden text-sm text-red-600 dark:text-red-400"></p>
+                    </div>
+
+                    <div>
+                        <label for="university" class="mb-2 block font-medium">University</label>
+                        <input id="university" name="university" type="text" required aria-describedby="university-error" placeholder="Your university name" class="w-full rounded-md border border-slate-300 bg-white px-4 py-3 dark:border-slate-600 dark:bg-slate-900">
+                        <p id="university-error" class="mt-1 hidden text-sm text-red-600 dark:text-red-400"></p>
+                    </div>
+
+                    <div>
+                        <label for="challenge" class="mb-2 block font-medium">
+                            Which challenge would you like to complete with your friends?
+                        </label>
+
+                        <textarea id="challenge" name="challenge" rows="4" required aria-describedby="challenge-error" placeholder="For example: reading, exercise, or studying..." class="w-full rounded-md border border-slate-300 bg-white px-4 py-3 dark:border-slate-600 dark:bg-slate-900"></textarea>
+                        <p id="challenge-error" class="mt-1 hidden text-sm text-red-600 dark:text-red-400"></p>
+                    </div>
+
+                    <button type="submit" class="rounded-md bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700 dark:bg-blue-500 sm:w-fit">
+                        Send Registration
+                    </button>
+
+                </form>
+            </div>
+        </section>
+
+        <section id="wireframes" class="border-b border-slate-200 bg-white px-4 py-14 dark:border-slate-800 dark:bg-slate-900 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
+                    Figma Wireframes
+                </p>
+
+                <h2 class="mt-3 text-3xl font-bold sm:text-4xl">
+                    The PlayReal experience
+                </h2>
+
+                <p class="mt-4 max-w-4xl text-slate-600 dark:text-slate-300">
+                    Responsive Lo-Fi wireframes represent the main application screens and their important interface states.
+                </p>
+
+                <div class="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+
+                    <article class="rounded-lg border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Screen 01</p>
+                        <h3 class="mt-1 text-lg font-semibold">Active Challenge</h3>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Active, empty, and error states.</p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Screen 02</p>
+                        <h3 class="mt-1 text-lg font-semibold">Groups</h3>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Active, empty, and error states.</p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Screen 03</p>
+                        <h3 class="mt-1 text-lg font-semibold">Upload Evidence</h3>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Empty, filled, and validation states.</p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Screen 04</p>
+                        <h3 class="mt-1 text-lg font-semibold">Voting</h3>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Active, empty, and error states.</p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-200 bg-blue-50 p-5 dark:border-slate-700 dark:bg-slate-800">
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-300">Screen 05</p>
+                        <h3 class="mt-1 text-lg font-semibold">Ranking</h3>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Active, empty, and error states.</p>
+                    </article>
+
+                </div>
+
+                <a href="https://www.figma.com/make/N0d9HVxNgSnsa5966sK7Yv/PlayReal?t=pQdbJKyYlsP7pLkR-1" target="_blank" rel="noopener noreferrer" class="mt-8 inline-block rounded-md bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700 dark:bg-blue-500">
+                    Open Figma Wireframes
+                </a>
+
+            </div>
+        </section>
+
+        <section id="team" class="bg-blue-50 px-4 py-14 dark:bg-slate-950 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
+                    The PlayReal Team
+                </p>
+
+                <h2 class="mt-3 text-3xl font-bold sm:text-4xl">
+                    Meet the people behind the project
+                </h2>
+
+                <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+                    <article class="rounded-lg border border-blue-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
+                        <h3 class="font-semibold text-blue-700 dark:text-blue-300">Juan Esteban</h3>
+                        <p class="mt-2 text-slate-600 dark:text-slate-300">Project Lead</p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
+                        <h3 class="font-semibold text-blue-700 dark:text-blue-300">Andres</h3>
+                        <p class="mt-2 text-slate-600 dark:text-slate-300">UX/UI and Frontend Designer</p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
+                        <h3 class="font-semibold text-blue-700 dark:text-blue-300">Jorge</h3>
+                        <p class="mt-2 text-slate-600 dark:text-slate-300">Backend, Deployment, and Database</p>
+                    </article>
+
+                    <article class="rounded-lg border border-blue-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
+                        <h3 class="font-semibold text-blue-700 dark:text-blue-300">Daniel</h3>
+                        <p class="mt-2 text-slate-600 dark:text-slate-300">Feedback and Testing</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="evidence-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-950/70 px-4" role="dialog" aria-modal="true" aria-labelledby="evidence-modal-title" aria-hidden="true">
+        <div class="w-full max-w-lg rounded-xl bg-white p-6 shadow-xl dark:bg-slate-900">
+            <div class="flex items-start justify-between gap-4">
+                <div>
+                    <h2 id="evidence-modal-title" class="text-2xl font-bold">Upload your evidence</h2>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">In the PlayReal app, you would add a photo or note that shows you completed today's reading challenge.</p>
+                </div>
+                <button id="close-evidence-modal" type="button" class="rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800" aria-label="Close evidence dialog">Close</button>
+            </div>
+            <p class="mt-5 rounded-md bg-green-50 p-4 text-sm text-green-800 dark:bg-green-950 dark:text-green-200">Tip: press Escape at any time to close this dialog.</p>
+        </div>
+    </div>
+
+    <footer class="border-t border-blue-800 bg-blue-800 px-4 py-7 text-center text-sm text-blue-100 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-400">
+        <p>PlayReal · DSAW · Universidad de La Sabana</p>
+    </footer>
+
+    <script src="js/validation.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
