@@ -4,7 +4,7 @@ Juan Esteban Gonzalez Villarreal
 
 # Pages link
 
-https://dsaw-2026-2.github.io/hw1-team-readme-and-project-kickoff-ninjasilver3692077/
+https://dsaw-2026-2.github.io/hw05-javascript-fundamentals-ninjasilver3692077/
 
 # HW05 — JavaScript Fundamentals
 
